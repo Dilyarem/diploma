@@ -1,0 +1,31 @@
+{
+  "key": "${addon.key}",
+  "baseUrl": "${addon.base-url}",
+  "name": "Hello World",
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "scopes": ["READ", "WRITE"],
+  "modules": {
+    "generalPages": [
+      {
+        "key": "helloworld-page-jira",
+        "location": "system.top.navigation.bar",
+        "name": {
+          "value": "Hello World"
+        },
+        "url": "/helloworld"
+      }
+    ],
+    "webhooks": [
+      {
+        "event": "jira:issue_created",
+        "url": "/issue_created"
+      }
+    ]
+  }
+}
